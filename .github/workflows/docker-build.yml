@@ -11,7 +11,7 @@ jobs:
   build:
     name: Build LibreTV image
     runs-on: ubuntu-latest
-    if: (github.event.workflow_run.conclusion == 'success' && github.repository == 'LibreSpark/LibreTV') || (github.repository == 'bestZwei/libretv')
+    if: (github.event.workflow_run.conclusion == 'success' && github.repository == 'venomk/LibreTV') || (github.repository == 'venomk/libretv')
 
     steps:
       - name: Check out repository
@@ -20,7 +20,7 @@ jobs:
       - name: Set Docker image tag based on repository
         id: set-tag
         run: |
-          if [ "${{ github.repository }}" = "LibreSpark/LibreTV" ]; then
+          if [ "${{ github.repository }}" = "venomk/LibreTV" ]; then
             echo "IMAGE_TAG=libretv:latest" >> $GITHUB_OUTPUT
           else
             echo "IMAGE_TAG=libretv-beta:latest" >> $GITHUB_OUTPUT
